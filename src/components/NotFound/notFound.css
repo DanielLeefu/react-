@@ -1,0 +1,18 @@
+body, h1, p { margin: 0; }
+            
+.container { max-width: 700px; margin: 0 auto; padding: 1em; font-size: 110%; line-height: 1.4; overflow: hidden; }
+.container a { font-style: normal; color: #0089e0; text-decoration: none; }
+.panel { float: left; }
+.panda { position: relative; width: 333px; height: 293px; margin-right: 1em; background: url(http://res.jzyx.com/themes/general/images/404panda-bg.png) no-repeat; overflow: hidden; }
+.panda img { position: absolute; top: 53px; left: 49px; width: 240px; height: 240px; }
+.brief h1 { font-size: 1.5em; font-weight: 400; }
+.brief p { margin-top: 1em; }
+
+@media (min-width: 768px) {
+    .container { padding-top: 8em; }
+    .brief h1 { padding-top: 4em; }
+}
+
+@media (max-width: 333px) {
+    .panda { width: 100%; }
+}

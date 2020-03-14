@@ -1,24 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Redirect, Switch } from "react-router-dom"
+import MyLeft from "./components/MyLeft/MyLeft"
+import { LeftRoutes } from "./route/index"
+import MyRoute from "./route/MyRoute/MyRoute"
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+        sessionStorage.getItem("username") ? <MyLeft>
+          <Switch>
+            {
+              LeftRoutes.map((item) => {
+                return <MyRoute roles={item.roles} key={item.path} path={item.path} component={item.component}></MyRoute>
+              })
+            }
+            <Redirect from="/home" to="/home/dashboard" exact />
+            <Redirect to="/404" />
+          </Switch>
+        </MyLeft> : <Redirect to="/login"></Redirect>
+      }
+
     </div>
   );
 }
